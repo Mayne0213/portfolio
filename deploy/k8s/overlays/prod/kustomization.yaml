@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: portfolio
+
+resources:
+  - ../../base
+
+commonLabels:
+  environment: production
+
+# 이미지 태그 설정
+images:
+  - name: ghcr.io/mayne0213/portfolio
+    newTag: latest
+
+patchesStrategicMerge:
+  - deployment-patch.yaml

@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: portfolio
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Mayne0213/portfolio.git
+    targetRevision: main
+    path: deploy/k8s/overlays/prod
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: portfolio
+
+  syncPolicy:
+    automated:
+      prune: true      # 매니페스트에서 제거된 리소스 자동 삭제
+      selfHeal: true   # 클러스터에서 수동 변경 시 자동 복구
+      allowEmpty: false
+
+    syncOptions:
+      - CreateNamespace=true  # namespace가 없으면 자동 생성
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+
+  revisionHistoryLimit: 10

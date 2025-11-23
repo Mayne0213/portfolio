@@ -1,0 +1,22 @@
+services:
+  # Production Portfolio Next.js Application
+  app:
+    image: portfolio-app
+    build:
+      context: ../../services/nextjs
+      dockerfile: ../../deploy/docker/Dockerfile.prod
+    container_name: portfolio-app-prod
+    restart: unless-stopped
+    labels:
+      kompose.namespace: portfolio
+    ports:
+      - 3005:3000
+    environment:
+      - NODE_ENV=production
+    networks:
+      - portfolio-network
+
+networks:
+  portfolio-network:
+    driver: bridge
+    name: portfolio-network-prod
