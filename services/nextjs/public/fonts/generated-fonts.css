@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'SupremeLLTT-Book';
+  src: url('/fonts/brand/SupremeLLTT-Book.woff2') format('woff2');
+}
+.font-brand-book {
+  font-family: 'SupremeLLTT-Book', sans-serif;
+}
+

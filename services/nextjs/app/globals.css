@@ -1,0 +1,264 @@
+@import "tailwindcss";
+@import '../public/fonts/generated-fonts.css';
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-tablet: 768px;
+  --breakpoint-pc: 1024px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@custom-variant tablet (@media (width >= 768px));
+@custom-variant pc (@media (width >= 1024px));
+
+:root {
+  --radius: 0.625rem;
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --brand-primary: oklch(0.129 0.042 264.695);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.border-b-brand-primary {
+  border-bottom-color: var(--brand-primary);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --animate-meteor: meteor 5s linear infinite;
+  @keyframes meteor {
+    0% {
+      transform: rotate(215deg) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(215deg) translateX(-500px);
+      opacity: 0;
+    }
+  }
+  --animate-meteor-effect: meteor 5s linear infinite
+;
+  @keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+    }
+  70% {
+    opacity: 1;
+    }
+  100% {
+    transform: rotate(215deg) translateX(-500px);
+    opacity: 0;
+    }
+  }
+}
+
+/* Static Stars Background */
+.stars {
+  background-image:
+    /* Small stars (2px) */
+    radial-gradient(2px 2px at 20px 30px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 60px 70px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 140px 150px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 300px 180px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 320px 320px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 400px 120px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 480px 280px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 620px 340px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 720px 120px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 800px 260px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 920px 180px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1000px 290px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1100px 150px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1200px 320px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1300px 100px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 100px 200px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 250px 80px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 350px 300px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 450px 50px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 580px 200px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 680px 350px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 780px 90px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 880px 220px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 950px 330px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1050px 60px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1150px 240px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1250px 170px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1350px 280px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 80px 340px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 180px 110px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 280px 250px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 380px 370px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 520px 140px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 640px 80px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 760px 310px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 860px 160px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 980px 240px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1080px 350px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1180px 90px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1280px 210px, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 1380px 330px, white, rgba(0,0,0,0)),
+    /* Medium stars (3px) */
+    radial-gradient(3px 3px at 220px 250px, white, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 550px 190px, white, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 850px 350px, white, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 1300px 200px, white, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 150px 380px, white, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 420px 200px, white, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 700px 270px, white, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 900px 100px, white, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 1120px 310px, white, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 1340px 150px, white, rgba(0,0,0,0)),
+    /* Large stars (4px) - fewer for emphasis */
+    radial-gradient(4px 4px at 500px 100px, white, rgba(0,0,0,0)),
+    radial-gradient(4px 4px at 900px 300px, white, rgba(0,0,0,0)),
+    radial-gradient(4px 4px at 200px 150px, white, rgba(0,0,0,0)),
+    radial-gradient(4px 4px at 1200px 250px, white, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 1400px 400px;
+  opacity: 0.6;
+  animation: starsMove 200s linear infinite;
+}
+
+@keyframes starsMove {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-400px);
+  }
+}
+
+.dark .stars {
+  opacity: 0.8;
+}
