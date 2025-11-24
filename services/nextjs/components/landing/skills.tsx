@@ -77,7 +77,7 @@ export default function Skills() {
             icon={Globe}
             title="Performance & Digital Presence"
             description="Performance Testing, Digital Presence, SEO, Accessibility, and more."
-            skills={['Lighthouse', 'Google Lighthouse', 'Google Search Console', 'Google Analytics', 'Google Tag Manager']}
+            skills={['Lighthouse', 'Google Search Console', 'Google Analytics', 'Google Tag Manager']}
           />
           <SkillCard
             icon={Router}
