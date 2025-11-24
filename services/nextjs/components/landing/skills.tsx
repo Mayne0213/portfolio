@@ -1,6 +1,6 @@
 import { Card, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Code, Server, Layout, LucideIcon } from 'lucide-react';
+import { Code, Server, Layout, Globe, Router, TestTube2, LucideIcon } from 'lucide-react';
 import SectionHeader from './section-header';
 
 interface SkillCardProps {
@@ -68,22 +68,22 @@ export default function Skills() {
             skills={['Git', 'Docker', 'AWS', 'CI/CD']}
           />
           <SkillCard
-            icon={Layout}
-            title="DevOps & Tools"
-            description="Managing deployment pipelines and development workflows"
-            skills={['Git', 'Docker', 'AWS', 'CI/CD']}
+            icon={TestTube2}
+            title=" Software Testing"
+            description="End to End & Unit Tests, building high rate requests scenarios (Stress Tests)."
+            skills={['Jest', 'Cypress', 'Puppeteer', 'Playwright']}
           />
           <SkillCard
-            icon={Layout}
-            title="DevOps & Tools"
-            description="Managing deployment pipelines and development workflows"
-            skills={['Git', 'Docker', 'AWS', 'CI/CD']}
+            icon={Globe}
+            title="Performance & Digital Presence"
+            description="Performance Testing, Digital Presence, SEO, Accessibility, and more."
+            skills={['Lighthouse', 'Google Lighthouse', 'Google Search Console', 'Google Analytics', 'Google Tag Manager']}
           />
           <SkillCard
-            icon={Layout}
-            title="DevOps & Tools"
-            description="Managing deployment pipelines and development workflows"
-            skills={['Git', 'Docker', 'AWS', 'CI/CD']}
+            icon={Router}
+            title="Web Hosting"
+            description="Web Hosting, Cloud Computing, and more."
+            skills={['AWS', 'DigitalOcean', 'Vercel', 'Netlify', 'Cloudflare']}
           />
         </div>
       </main>
