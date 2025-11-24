@@ -71,9 +71,37 @@ jobs:
         run: |
           # Extract the SHA-based tag from the tags list
           TAGS="${{ steps.meta.outputs.tags }}"
-          SHA_TAG=$(echo "$TAGS" | grep -o 'main-sha-[a-f0-9]\+' | head -n 1)
+          echo "All tags:"
+          echo "$TAGS"
+          echo "---"
+          
+          # Try multiple methods to extract SHA tag
+          # Method 1: Extract from full image tag (ghcr.io/.../image:main-sha-xxxxx)
+          SHA_TAG=$(echo "$TAGS" | grep -oE 'main-sha-[a-f0-9]+' | head -n 1)
+          
+          # Method 2: If Method 1 fails, try extracting from any line containing main-sha-
+          if [ -z "$SHA_TAG" ]; then
+            SHA_TAG=$(echo "$TAGS" | grep 'main-sha-' | sed -n 's/.*main-sha-\([a-f0-9]\+\).*/\1/p' | head -n 1)
+            if [ -n "$SHA_TAG" ]; then
+              SHA_TAG="main-sha-$SHA_TAG"
+            fi
+          fi
+          
+          # Method 3: Extract SHA from commit SHA directly
+          if [ -z "$SHA_TAG" ]; then
+            COMMIT_SHA="${{ github.sha }}"
+            SHORT_SHA=$(echo "$COMMIT_SHA" | cut -c1-7)
+            SHA_TAG="main-sha-$SHORT_SHA"
+            echo "⚠️  Could not extract from tags, using commit SHA: $SHA_TAG"
+          fi
+          
+          if [ -z "$SHA_TAG" ]; then
+            echo "❌ ERROR: Failed to extract SHA tag"
+            exit 1
+          fi
+          
           echo "sha-tag=$SHA_TAG" >> $GITHUB_OUTPUT
-          echo "Extracted SHA tag: $SHA_TAG"
+          echo "✅ Extracted SHA tag: $SHA_TAG"
 
       - name: Update kustomization with new image tag
         env:
@@ -82,17 +110,37 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+          # Validate that SHA_TAG is not empty
+          SHA_TAG="${{ steps.extract-tag.outputs.sha-tag }}"
+          if [ -z "$SHA_TAG" ]; then
+            echo "❌ ERROR: SHA_TAG is empty, cannot update kustomization"
+            exit 1
+          fi
+          
+          echo "📝 Updating kustomization.yaml with tag: $SHA_TAG"
+          
           # Update kustomization.yaml with new image tag
-          sed -i 's|newTag:.*|newTag: ${{ steps.extract-tag.outputs.sha-tag }}|' deploy/k8s/overlays/prod/kustomization.yaml
+          # Handle both cases: newTag: (with value) and newTag: (empty)
+          sed -i.bak "s|newTag:.*|newTag: $SHA_TAG|" deploy/k8s/overlays/prod/kustomization.yaml
+          
+          # Verify the update was successful
+          if grep -q "newTag: $SHA_TAG" deploy/k8s/overlays/prod/kustomization.yaml; then
+            echo "✅ Successfully updated kustomization.yaml"
+            rm -f deploy/k8s/overlays/prod/kustomization.yaml.bak
+          else
+            echo "❌ ERROR: Failed to update kustomization.yaml"
+            cat deploy/k8s/overlays/prod/kustomization.yaml
+            exit 1
+          fi
 
           # Commit and push if there are changes
           if git diff --quiet; then
             echo "No changes to commit"
           else
             git add deploy/k8s/overlays/prod/kustomization.yaml
-            git commit -m "Update image to ${{ steps.extract-tag.outputs.sha-tag }}"
+            git commit -m "Update image to $SHA_TAG"
             git push
-            echo "✅ Kustomization updated with new image tag"
+            echo "✅ Kustomization updated with new image tag: $SHA_TAG"
           fi
 
       - name: Display image information
