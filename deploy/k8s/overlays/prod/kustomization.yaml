@@ -5,6 +5,7 @@ namespace: portfolio
 
 resources:
   - ../../base
+  - resourcequota.yaml
 
 commonLabels:
   environment: production

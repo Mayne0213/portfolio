@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: portfolio-quota
+  namespace: portfolio
+spec:
+  hard:
+    requests.memory: "150Mi"
+    requests.cpu: "100m"
+    limits.memory: "250Mi"
+    limits.cpu: "200m"
+    pods: "2"
