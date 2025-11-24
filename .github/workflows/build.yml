@@ -15,7 +15,7 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     outputs:
@@ -66,12 +66,43 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Extract SHA tag
+        id: extract-tag
+        run: |
+          # Extract the SHA-based tag from the tags list
+          TAGS="${{ steps.meta.outputs.tags }}"
+          SHA_TAG=$(echo "$TAGS" | grep -o 'main-sha-[a-f0-9]\+' | head -n 1)
+          echo "sha-tag=$SHA_TAG" >> $GITHUB_OUTPUT
+          echo "Extracted SHA tag: $SHA_TAG"
+
+      - name: Update kustomization with new image tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Update kustomization.yaml with new image tag
+          sed -i 's|newTag:.*|newTag: ${{ steps.extract-tag.outputs.sha-tag }}|' deploy/k8s/overlays/prod/kustomization.yaml
+
+          # Commit and push if there are changes
+          if git diff --quiet; then
+            echo "No changes to commit"
+          else
+            git add deploy/k8s/overlays/prod/kustomization.yaml
+            git commit -m "Update image to ${{ steps.extract-tag.outputs.sha-tag }}"
+            git push
+            echo "✅ Kustomization updated with new image tag"
+          fi
+
       - name: Display image information
         run: |
           echo "✅ Image built and pushed successfully!"
           echo "📦 Image tags:"
           echo "${{ steps.meta.outputs.tags }}"
+          echo "🔖 SHA tag: ${{ steps.extract-tag.outputs.sha-tag }}"
           echo "🔖 Digest: ${{ steps.build.outputs.digest }}"
           echo ""
-          echo "🚀 ArgoCD will automatically detect and deploy this new image"
+          echo "🚀 Kustomization updated with new image tag"
+          echo "   ArgoCD will automatically detect and deploy this new image"
           echo "   Monitor deployment at your ArgoCD dashboard"
