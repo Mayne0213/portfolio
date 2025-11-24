@@ -3,6 +3,10 @@ kind: Application
 metadata:
   name: portfolio
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: portfolio=ghcr.io/mayne0213/portfolio
+    argocd-image-updater.argoproj.io/portfolio.update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
