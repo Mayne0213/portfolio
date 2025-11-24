@@ -65,7 +65,7 @@ export default function Skills() {
             icon={Layout}
             title="DevOps & Tools"
             description="Managing deployment pipelines and development workflows"
-            skills={['Git', 'Docker', 'AWS', 'CI/CD']}
+            skills={['Git', 'Docker','K8s', 'ArgoCD', 'AWS', 'CI/CD']}
           />
           <SkillCard
             icon={TestTube2}
