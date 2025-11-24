@@ -24,6 +24,7 @@
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "shadcn": "^3.5.0",
+    "sharp": "^0.33.5",
     "tailwind-merge": "^3.3.1",
     "three": "^0.181.0"
   },
