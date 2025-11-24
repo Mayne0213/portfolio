@@ -75,35 +75,24 @@ jobs:
           echo "$TAGS"
           echo "---"
           
-          # Get commit SHA and create short SHA (7 characters)
+          # Get commit SHA (full 40 characters)
           COMMIT_SHA="${{ github.sha }}"
-          SHORT_SHA=$(echo "$COMMIT_SHA" | cut -c1-7)
-          EXPECTED_TAG="main-sha-$SHORT_SHA"
           
-          # Method 1: Try to find the tag matching our expected format (main-sha-xxxxxxx)
-          SHA_TAG=$(echo "$TAGS" | grep -oE "main-sha-$SHORT_SHA" | head -n 1)
+          # Method 1: Extract the full SHA tag from docker/metadata-action output
+          # docker/metadata-action creates: main-sha-<full-40-char-sha>
+          SHA_TAG=$(echo "$TAGS" | grep -oE 'main-sha-[a-f0-9]{40}' | head -n 1)
           
-          # Method 2: If not found, try to extract any main-sha- tag (could be full SHA)
+          # Method 2: If not found, try to extract any main-sha- tag (fallback)
           if [ -z "$SHA_TAG" ]; then
-            # Extract the SHA part from main-sha-<sha> format
-            EXTRACTED_SHA=$(echo "$TAGS" | grep -oE 'main-sha-[a-f0-9]+' | sed 's/main-sha-//' | head -n 1)
-            if [ -n "$EXTRACTED_SHA" ]; then
-              # Check if extracted SHA starts with our short SHA
-              if echo "$EXTRACTED_SHA" | grep -q "^$SHORT_SHA"; then
-                # Use the short SHA format for consistency
-                SHA_TAG="$EXPECTED_TAG"
-                echo "⚠️  Found full SHA tag, using short SHA format: $SHA_TAG"
-              else
-                # Use the extracted SHA as-is
-                SHA_TAG="main-sha-$EXTRACTED_SHA"
-                echo "⚠️  Using extracted SHA tag: $SHA_TAG"
-              fi
+            SHA_TAG=$(echo "$TAGS" | grep -oE 'main-sha-[a-f0-9]+' | head -n 1)
+            if [ -n "$SHA_TAG" ]; then
+              echo "⚠️  Found SHA tag (may not be full 40 chars): $SHA_TAG"
             fi
           fi
           
-          # Method 3: Fallback to commit SHA directly (most reliable)
+          # Method 3: Fallback to commit SHA directly (construct the tag)
           if [ -z "$SHA_TAG" ]; then
-            SHA_TAG="$EXPECTED_TAG"
+            SHA_TAG="main-sha-$COMMIT_SHA"
             echo "⚠️  Could not extract from tags, using commit SHA: $SHA_TAG"
           fi
           
@@ -114,7 +103,6 @@ jobs:
           
           echo "sha-tag=$SHA_TAG" >> $GITHUB_OUTPUT
           echo "✅ Extracted SHA tag: $SHA_TAG"
-          echo "📝 Expected tag format: $EXPECTED_TAG"
 
       - name: Update kustomization with new image tag
         env:
