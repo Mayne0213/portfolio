@@ -1,15 +1,22 @@
 import { Card } from '@/components/ui/card';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { Separator } from '../ui/separator';
 import { SquareArrowOutUpRight } from 'lucide-react';
 import { Button } from '../ui/button';
 import SectionHeader from './section-header';
+import joossamHome from '@/public/joossam/home.png';
+import jotionHome from '@/public/jotion/home.png';
+import joossamMain from '@/public/joossam/main.png';
+import jaejadleHome from '@/public/jaejadle/home.png';
+import portfolioHome from '@/public/portfolio/home.png';
+import todoListHome from '@/public/todoList/home.png';
+import joviesHome from '@/public/jovies/home.png';
 
 interface ProjectCardProps {
   title: string;
   description: string;
   tags: string[];
-  imageSrc: string;
+  imageSrc: StaticImageData;
 }
 
 function ProjectCard({ title, description, tags, imageSrc }: ProjectCardProps) {
@@ -57,43 +64,43 @@ export default function Projects() {
           title="Joossam English"
           description="A full-featured online shopping platform with A full-featured online shopping platform with payment integratioA full-featured online shopping pntegration"
           tags={['Next.js', 'Stripe', 'PostgreSQL']}
-          imageSrc="/joossam/home.png"
+          imageSrc={joossamHome}
         />
         <ProjectCard
           title="Jotion"
           description="Collaborative task management tool with real-time updates"
           tags={['React', 'WebSocket', 'MongoDB']}
-          imageSrc="/jotion/home.png"
+          imageSrc={jotionHome}
         />
         <ProjectCard
           title="Youni Classic"
           description="Analytics dashboard for social media metrics and insights"
           tags={['Next.js', 'Chart.js', 'Redis']}
-          imageSrc="/joossam/main.png"
+          imageSrc={joossamMain}
         />
         <ProjectCard
           title="Jaejadle Church"
           description="Beautiful weather forecasting application with location detection"
           tags={['React', 'OpenWeather API', 'Geolocation']}
-          imageSrc="/jaejadle/home.png"
+          imageSrc={jaejadleHome}
         />
         <ProjectCard
           title="Portfolio"
           description="Beautiful weather forecasting application with location detection"
           tags={['React', 'OpenWeather API', 'Geolocation']}
-          imageSrc="/portfolio/home.png"
+          imageSrc={portfolioHome}
         />
         <ProjectCard
           title="[Seminar] Todo List"
           description="Beautiful weather forecasting application with location detection"
           tags={['React', 'OpenWeather API', 'Geolocation']}
-          imageSrc="/todoList/home.png"
+          imageSrc={todoListHome}
         />
         <ProjectCard
           title="Jovies"
           description="Beautiful weather forecasting application with location detection"
           tags={['React', 'OpenWeather API', 'Geolocation']}
-          imageSrc="/jovies/home.png"
+          imageSrc={joviesHome}
         />
       </section>
     </main>
