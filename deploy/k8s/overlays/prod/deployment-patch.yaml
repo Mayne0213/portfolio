@@ -12,8 +12,8 @@ spec:
         - name: portfolio-app
           resources:
             requests:
-              memory: "100Mi"
+              memory: "120Mi"
               cpu: "50m"
             limits:
-              memory: "200Mi"
+              memory: "230Mi"
               cpu: "150m"
