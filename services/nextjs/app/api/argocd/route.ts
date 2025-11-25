@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import https from 'https';
+import { URL } from 'url';
 
 // 클러스터 내부에서 실행되는 경우 클러스터 내부 서비스 URL 사용
 // 외부에서 실행되는 경우 환경 변수로 설정 가능
@@ -13,23 +15,47 @@ async function fetchWithCert(url: string, options: RequestInit = {}): Promise<Re
     return fetch(url, options);
   }
 
-  // Node.js 환경에서 인증서가 있으면 커스텀 agent 사용
+  // Node.js 환경에서 인증서가 있으면 https 모듈 직접 사용
   if (ARGOCD_CA_CERT) {
-    const https = require('https');
-    const { Agent } = https;
-    
-    const agent = new Agent({
-      ca: ARGOCD_CA_CERT,
-      rejectUnauthorized: true,
+    return new Promise((resolve, reject) => {
+      const urlObj = new URL(url);
+      const requestOptions: https.RequestOptions = {
+        hostname: urlObj.hostname,
+        port: urlObj.port || 443,
+        path: urlObj.pathname + urlObj.search,
+        method: options.method || 'GET',
+        headers: {
+          ...(options.headers as Record<string, string>),
+        },
+        ca: ARGOCD_CA_CERT,
+        rejectUnauthorized: true,
+      };
+
+      const req = https.request(requestOptions, (res) => {
+        let data = '';
+        res.on('data', (chunk) => {
+          data += chunk;
+        });
+        res.on('end', () => {
+          const response = new Response(data, {
+            status: res.statusCode || 200,
+            statusText: res.statusMessage || 'OK',
+            headers: res.headers as HeadersInit,
+          });
+          resolve(response);
+        });
+      });
+
+      req.on('error', (error) => {
+        reject(error);
+      });
+
+      if (options.body) {
+        req.write(typeof options.body === 'string' ? options.body : JSON.stringify(options.body));
+      }
+
+      req.end();
     });
-
-    // Node.js의 fetch에 agent 전달
-    const nodeOptions: any = {
-      ...options,
-      agent,
-    };
-
-    return fetch(url, nodeOptions);
   }
 
   return fetch(url, options);
