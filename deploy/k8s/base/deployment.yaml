@@ -29,6 +29,14 @@ spec:
           env:
             - name: NODE_ENV
               value: production
+            - name: ARGOCD_SERVER_URL
+              value: "https://argocd-server.argocd.svc.cluster.local"
+            - name: ARGOCD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: argocd-token
+                  key: token
+                  optional: false
           resources:
             requests:
               memory: "100Mi"

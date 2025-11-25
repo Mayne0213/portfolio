@@ -10,6 +10,7 @@ const HEADER_MENU_ITEMS = [
   { name: 'Experience', path: '#experience' },
   { name: 'Projects', path: '#projects' },
   { name: 'Contact', path: '#contact' },
+  { name: 'ArgoCD', path: '/argocd' },
 ];
 
 interface HeaderProfileProps {
