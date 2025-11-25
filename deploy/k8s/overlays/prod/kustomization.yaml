@@ -13,7 +13,7 @@ commonLabels:
 # 이미지 태그 설정
 images:
   - name: ghcr.io/mayne0213/portfolio
-    newTag: main-sha-db21ed85671bdb8b6153d06250e41821772003dc
+    newTag: main-sha-4f895110ef62cc58495fc98f825d39ed42088d25
 
 patchesStrategicMerge:
   - deployment-patch.yaml
