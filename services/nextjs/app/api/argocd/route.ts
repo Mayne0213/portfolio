@@ -4,6 +4,36 @@ import { NextRequest, NextResponse } from 'next/server';
 // 외부에서 실행되는 경우 환경 변수로 설정 가능
 const ARGOCD_SERVER_URL = process.env.ARGOCD_SERVER_URL || 'https://argocd-server.argocd.svc.cluster.local';
 const ARGOCD_TOKEN = process.env.ARGOCD_TOKEN || '';
+const ARGOCD_CA_CERT = process.env.ARGOCD_CA_CERT || '';
+
+// Node.js 환경에서 커스텀 fetch 함수 생성 (인증서 지원)
+async function fetchWithCert(url: string, options: RequestInit = {}): Promise<Response> {
+  // 브라우저 환경에서는 기본 fetch 사용
+  if (typeof window !== 'undefined') {
+    return fetch(url, options);
+  }
+
+  // Node.js 환경에서 인증서가 있으면 커스텀 agent 사용
+  if (ARGOCD_CA_CERT) {
+    const https = require('https');
+    const { Agent } = https;
+    
+    const agent = new Agent({
+      ca: ARGOCD_CA_CERT,
+      rejectUnauthorized: true,
+    });
+
+    // Node.js의 fetch에 agent 전달
+    const nodeOptions: any = {
+      ...options,
+      agent,
+    };
+
+    return fetch(url, nodeOptions);
+  }
+
+  return fetch(url, options);
+}
 
 interface ArgoCDApplication {
   metadata: {
@@ -51,12 +81,11 @@ export async function GET(request: NextRequest) {
     }
 
     // ArgoCD API v1 - Get applications
-    const response = await fetch(`${ARGOCD_SERVER_URL}/api/v1/applications`, {
+    const response = await fetchWithCert(`${ARGOCD_SERVER_URL}/api/v1/applications`, {
       headers: {
         'Authorization': `Bearer ${ARGOCD_TOKEN}`,
         'Content-Type': 'application/json',
       },
-      // Next.js에서 외부 API 호출 시 캐시 설정
       cache: 'no-store',
     });
 

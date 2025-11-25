@@ -37,6 +37,12 @@ spec:
                   name: argocd-token
                   key: token
                   optional: false
+            - name: ARGOCD_CA_CERT
+              valueFrom:
+                secretKeyRef:
+                  name: argocd-ca-cert
+                  key: ca.crt
+                  optional: true
           resources:
             requests:
               memory: "100Mi"
