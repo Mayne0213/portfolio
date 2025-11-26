@@ -43,6 +43,8 @@ spec:
                   name: argocd-ca-cert
                   key: ca.crt
                   optional: true
+            - name: PROMETHEUS_URL
+              value: "http://prometheus.monitoring.svc.cluster.local:9090"
           resources:
             requests:
               memory: "100Mi"
