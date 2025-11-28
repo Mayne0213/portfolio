@@ -1,15 +1,31 @@
 import Hero from '@/components/landing/hero';
+import About from '@/components/landing/about';
 import Skills from '@/components/landing/skills';
 import Projects from '@/components/landing/projects';
 import Contact from '@/components/landing/contact';
+import Grafana from '@/components/landing/grafana';
 
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <Hero />
-      <Skills />
-      <Projects />
-      <Contact />
+      <div id="hero">
+        <Hero />
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <div id="skills">
+        <Skills />
+      </div>
+      <div id="projects">
+        <Projects />
+      </div>
+      {/* <div id="grafana"> */}
+        {/* <Grafana /> */}
+      {/* </div> */}
+      <div id="contact">
+        <Contact />
+      </div>
     </div>
   );
 }

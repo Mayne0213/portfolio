@@ -108,6 +108,14 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .page-container {
+    @apply flex flex-col items-center justify-center gap-16 p-4 tablet:p-8 py-20 mt-[70px];
+  }
+
+  .theme-background {
+    @apply bg-gray-100 dark:bg-neutral-800;
+  }
 }
 
 .border-b-brand-primary {

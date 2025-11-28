@@ -28,23 +28,6 @@ export default function Hero() {
               </p>
             </div>
           </div>
-
-          <div className="flex items-center gap-8">
-            <Button
-              type="button"
-              variant="outline"
-              className="flex items-center gap-2 cursor-pointer"
-            >
-              View Projects
-            </Button>
-            <Button
-              type="button"
-              variant="outline"
-              className="flex items-center gap-2 cursor-pointer"
-            >
-              Contact Me
-            </Button>
-          </div>
         </div>
       </div>
     </div>

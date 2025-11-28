@@ -1,16 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Languages } from 'lucide-react';
 import Link from 'next/link';
 import { ModeToggle } from '@/components/ui/mode-toggle';
+import { Button } from '@/components/ui/button';
 
 const HEADER_MENU_ITEMS = [
-  { name: 'About', path: '#about' },
-  { name: 'Experience', path: '#experience' },
-  { name: 'Projects', path: '#projects' },
-  { name: 'Contact', path: '#contact' },
-  { name: 'ArgoCD', path: '/argocd' },
+  { name: 'About', path: '/#about', isScroll: true },
+  { name: 'Skills', path: '/#skills', isScroll: true },
+  { name: 'Projects', path: '/#projects', isScroll: true },
+  { name: 'Contact', path: '/#contact', isScroll: true },
+  { name: 'Grafana', path: '/monitoring', isScroll: false },
 ];
 
 interface HeaderProfileProps {
@@ -49,6 +50,24 @@ const HeaderProfile = ({
 
 
 const HeaderMenuItemsDesktop = () => {
+  const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, isScroll: boolean) => {
+    if (isScroll) {
+      e.preventDefault();
+      const sectionId = path.replace('/#', '');
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navbarHeight = 70;
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navbarHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
   return (
     <div className="flex justify-center items-center">
       {HEADER_MENU_ITEMS.map((item) => (
@@ -58,6 +77,7 @@ const HeaderMenuItemsDesktop = () => {
         >
           <Link
             href={item.path}
+            onClick={(e) => handleScrollClick(e, item.path, item.isScroll)}
             className="font-extralight text-sm pc:text-base duration-100 ease-in hover:border-b-2 hover:border-b-black hover:dark:border-b-white pb-1"
           >
             {item.name}
@@ -70,6 +90,25 @@ const HeaderMenuItemsDesktop = () => {
 
 const HeaderMenuItemsMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, isScroll: boolean) => {
+    if (isScroll) {
+      e.preventDefault();
+      const sectionId = path.replace('/#', '');
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navbarHeight = 70;
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navbarHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -107,7 +146,7 @@ const HeaderMenuItemsMobile = () => {
                     >
                       <Link
                         href={item.path}
-                        onClick={() => setIsOpen(false)}
+                        onClick={(e) => handleScrollClick(e, item.path, item.isScroll)}
                         className="text-xl duration-100 ease-in hover:border-b-2 hover:border-b-brand-primary hover:dark:border-b-white pb-1"
                       >
                         {item.name}

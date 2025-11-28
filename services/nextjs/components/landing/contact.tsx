@@ -61,7 +61,7 @@ export default function Contact() {
   ];
 
   return (
-    <div className="bg-linear-to-b from-gray-50 to-gray-100 dark:from-neutral-900 dark:to-neutral-800">
+    <div className="">
       <main className="flex flex-col items-center justify-center gap-16 p-4 tablet:p-8 py-20">
           <SectionHeader
             title="Get In Touch"
@@ -82,9 +82,9 @@ export default function Contact() {
                   href={method.link}
                   target={method.link.startsWith('http') ? '_blank' : undefined}
                   rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-neutral-800 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-accent transition-colors group"
                 >
-                  <div className={`flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-neutral-800 group-hover:scale-110 transition-transform ${method.color}`}>
+                  <div className={`flex items-center justify-center w-12 h-12 rounded-full bg-muted group-hover:scale-110 transition-transform ${method.color}`}>
                     <method.icon className="w-6 h-6" />
                   </div>
                   <div className="flex-1 min-w-0">
