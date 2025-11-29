@@ -1,6 +1,5 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import Particles from '@/components/ui/Particles';
 
 export default function Hero() {

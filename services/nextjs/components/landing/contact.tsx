@@ -61,7 +61,7 @@ export default function Contact() {
   ];
 
   return (
-    <div className="">
+    <div className="bg-muted">
       <main className="flex flex-col items-center justify-center gap-16 p-4 tablet:p-8 py-20">
           <SectionHeader
             title="Get In Touch"

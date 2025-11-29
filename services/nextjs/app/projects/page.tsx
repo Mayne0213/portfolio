@@ -107,8 +107,6 @@ const PROJECTS_DATA: ProjectData[] = [
   },
 ];
 
-interface ProjectCardProps extends ProjectData {}
-
 function ProjectCard({
   title,
   description,
@@ -120,7 +118,7 @@ function ProjectCard({
   docsUrl,
   monitoringUrl,
   featured,
-}: ProjectCardProps) {
+}: ProjectData) {
   return (
     <Card className="overflow-hidden w-full p-0 hover:shadow-lg transition-shadow">
       {/* Image Section */}

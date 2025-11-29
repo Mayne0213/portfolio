@@ -1,6 +1,5 @@
-import React from 'react';
 import { Separator } from '@/components/ui/separator';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 const FOOTER_MENU_ITEMS = [

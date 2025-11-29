@@ -3,7 +3,7 @@ import About from '@/components/landing/about';
 import Skills from '@/components/landing/skills';
 import Projects from '@/components/landing/projects';
 import Contact from '@/components/landing/contact';
-import Grafana from '@/components/landing/grafana';
+import GrafanaPage from '@/components/landing/grafana';
 
 export default function Home() {
   return (
@@ -20,9 +20,9 @@ export default function Home() {
       <div id="projects">
         <Projects />
       </div>
-      {/* <div id="grafana"> */}
-        {/* <Grafana /> */}
-      {/* </div> */}
+      <div id="monitoring">
+        <GrafanaPage />
+      </div>
       <div id="contact">
         <Contact />
       </div>

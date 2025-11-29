@@ -1,17 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, Languages } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { ModeToggle } from '@/components/ui/mode-toggle';
-import { Button } from '@/components/ui/button';
 
 const HEADER_MENU_ITEMS = [
   { name: 'About', path: '/#about', isScroll: true },
   { name: 'Skills', path: '/#skills', isScroll: true },
   { name: 'Projects', path: '/#projects', isScroll: true },
+  { name: 'Grafana', path: '/#monitoring', isScroll: true },
   { name: 'Contact', path: '/#contact', isScroll: true },
-  { name: 'Grafana', path: '/monitoring', isScroll: false },
 ];
 
 interface HeaderProfileProps {
