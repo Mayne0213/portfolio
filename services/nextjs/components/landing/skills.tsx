@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Code, Server, Layout, Globe, Router, TestTube2, LucideIcon, ChevronDown } from 'lucide-react';
 import SectionHeader from './section-header';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface SkillCardProps {
   icon: LucideIcon;
@@ -73,53 +74,55 @@ function SkillCard({ icon: Icon, title, description, mainSkills, subSkills }: Sk
 }
 
 export default function Skills() {
+  const t = useTranslations('skills');
+
   return (
     <main className="flex max-w-7xl mx-auto flex-col items-center justify-center gap-12 smalltablet:gap-14 tablet:gap-16 p-4 smalltablet:p-6 tablet:p-8 py-16 smalltablet:py-18 tablet:py-20">
       <SectionHeader
-        title="Skills & Expertise"
-        description="Technologies and tools I work with to build amazing web applications"
+        title={t('title')}
+        description={t('description')}
       />
 
       <div className="grid grid-cols-1 smalltablet:grid-cols-2 desktop:grid-cols-3 gap-4 smalltablet:gap-5 tablet:gap-6">
         <SkillCard
           icon={Code}
-          title="Frontend Development"
-          description="Building responsive and interactive user interfaces with modern frameworks and libraries"
+          title={t('frontend.title')}
+          description={t('frontend.description')}
           mainSkills={['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js']}
           subSkills={['Tailwind', 'Zustand', 'FSD', 'Radix UI', 'Shadcn/ui', 'Chart.js', 'React-Query', 'React-Hook-Form', 'Zod']}
         />
         <SkillCard
           icon={Server}
-          title="Backend Development"
-          description="Developing robust server-side applications and RESTful APIs"
+          title={t('backend.title')}
+          description={t('backend.description')}
           mainSkills={['Node.js', 'Prisma ORM', 'REST API', 'MySQL']}
           subSkills={['NextAuth.js', 'JWT', 'bcrypt', 'MariaDB']}
         />
         <SkillCard
           icon={Layout}
-          title="DevOps & Tools"
-          description="Managing deployment pipelines and development workflows"
+          title={t('devops.title')}
+          description={t('devops.description')}
           mainSkills={['Git', 'Docker', 'K8s', 'Github Actions', 'ArgoCD', 'Nginx ingress']}
           subSkills={['Kustomize', 'Helm', 'App of Apps Pattern', 'EC2', 'Lightsail', 'Vercel']}
         />
         <SkillCard
           icon={TestTube2}
-          title="Monitoring"
-          description="Implementing monitoring systems with Prometheus and Grafana"
+          title={t('monitoring.title')}
+          description={t('monitoring.description')}
           mainSkills={['Prometheus', 'Grafana']}
           subSkills={['Alertmanager', 'Node Exporter', 'kube-state-metrics']}
         />
         <SkillCard
           icon={Router}
-          title="Testing"
-          description="Implementing testing frameworks and tools"
+          title={t('testing.title')}
+          description={t('testing.description')}
           mainSkills={['Jest', 'Cypress', 'Puppeteer', 'Playwright']}
           subSkills={[]}
         />
         <SkillCard
           icon={Globe}
-          title="Web Hosting"
-          description="Deploying and managing web applications on various hosting platforms"
+          title={t('hosting.title')}
+          description={t('hosting.description')}
           mainSkills={['AWS EC2', 'AWS Lightsail', 'Vercel', 'Nginx']}
           subSkills={['SSL/TLS', 'Domain Management', 'Load Balancing', 'CDN']}
         />

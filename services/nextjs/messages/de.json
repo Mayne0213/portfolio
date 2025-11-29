@@ -1,0 +1,117 @@
+{
+  "header": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "skills": "Fähigkeiten",
+    "projects": "Projekte",
+    "monitoring": "Überwachung",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Full Stack Entwickler",
+    "description": "Erstellen schöner und funktionaler Web-Erlebnisse mit modernen Technologien"
+  },
+  "about": {
+    "title": "Über mich",
+    "description": "Leidenschaftlicher Full-Stack-Entwickler mit Expertise in der Entwicklung skalierbarer Webanwendungen und Cloud-Infrastruktur",
+    "personalInfo": "Persönliche Informationen",
+    "whoIAm": "Wer ich bin",
+    "name": "Name",
+    "education": "Ausbildung",
+    "birthday": "Geburtstag",
+    "location": "Standort",
+    "github": "Github",
+    "email": "E-Mail",
+    "bio1": "Ich bin Minjo Kim, ein Full-Stack-Entwickler und Bachelor in Informatik an der Seoul National University, Korea. Ich habe Erfahrung in der Webentwicklung und Cloud-Infrastruktur und bin leidenschaftlich daran interessiert, skalierbare und effiziente Systeme zu entwickeln.",
+    "bio2": "Mein akademischer Hintergrund gab mir solide Kenntnisse in Algorithmen, Datenstrukturen, Systemdesign und Datenbanken, die ich anwende, um effiziente und moderne Systeme zu erstellen. Ich habe wirkungsvolle Lösungen mit TypeScript, React, Next.js und Tailwind CSS geliefert.",
+    "bio3": "Ich bin verantwortlich für die Entwicklung von Full-Stack-Anwendungen, die Einrichtung von Kubernetes-Clustern mit ArgoCD für GitOps-Workflows und die Implementierung von Überwachungssystemen mit Prometheus und Grafana. Ich konzentriere mich auf die Erstellung wartbaren Codes und die Verbesserung der Systemleistung und Skalierbarkeit."
+  },
+  "skills": {
+    "title": "Fähigkeiten & Expertise",
+    "description": "Technologien und Tools, mit denen ich arbeite, um erstaunliche Webanwendungen zu erstellen",
+    "frontend": {
+      "title": "Frontend-Entwicklung",
+      "description": "Erstellen responsiver und interaktiver Benutzeroberflächen mit modernen Frameworks und Bibliotheken"
+    },
+    "backend": {
+      "title": "Backend-Entwicklung",
+      "description": "Entwicklung robuster serverseitiger Anwendungen und RESTful APIs"
+    },
+    "devops": {
+      "title": "DevOps & Tools",
+      "description": "Verwaltung von Deployment-Pipelines und Entwicklungsworkflows"
+    },
+    "monitoring": {
+      "title": "Überwachung",
+      "description": "Implementierung von Überwachungssystemen mit Prometheus und Grafana"
+    },
+    "testing": {
+      "title": "Testen",
+      "description": "Implementierung von Test-Frameworks und -Tools"
+    },
+    "hosting": {
+      "title": "Web-Hosting",
+      "description": "Bereitstellung und Verwaltung von Webanwendungen auf verschiedenen Hosting-Plattformen"
+    }
+  },
+  "projects": {
+    "title": "Ausgewählte Projekte",
+    "description": "Einige meiner jüngsten Arbeiten und Nebenprojekte",
+    "joossam": {
+      "title": "Joossam English",
+      "description": "Englisch-Lernplattform für koreanische Studenten"
+    },
+    "jotion": {
+      "title": "Jotion",
+      "description": "Notion-ähnliche Notizen-Anwendung"
+    },
+    "youniClassic": {
+      "title": "Youni Classic",
+      "description": "Kirchengemeinde-Verwaltungssystem"
+    },
+    "jaejadle": {
+      "title": "Jaejadle Church",
+      "description": "Kirchen-Website mit Veranstaltungsverwaltung"
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Persönliche Portfolio-Website mit Kubernetes-Bereitstellung"
+    },
+    "todoList": {
+      "title": "[Seminar] Todo List",
+      "description": "Bildungs-Todo-Listen-Anwendung für den Unterricht"
+    },
+    "jovies": {
+      "title": "Jovies",
+      "description": "Film-Entdeckungs- und Tracking-Anwendung"
+    }
+  },
+  "monitoring": {
+    "title": "Überwachung",
+    "description": "Echtzeit-Kubernetes-Cluster-Überwachung mit Grafana-Dashboards",
+    "overview": "Übersicht",
+    "resources": "Ressourcen",
+    "kubernetes": "Kubernetes",
+    "network": "Netzwerk"
+  },
+  "contact": {
+    "title": "Kontaktieren Sie mich",
+    "description": "Haben Sie ein Projekt im Kopf oder möchten Sie zusammenarbeiten? Ich würde mich freuen, von Ihnen zu hören. Kontaktieren Sie mich gerne über einen der unten stehenden Kanäle.",
+    "contactInfo": "Kontaktinformationen",
+    "sendMessage": "Senden Sie mir eine Nachricht",
+    "formDescription": "Füllen Sie das untenstehende Formular aus und ich werde mich so schnell wie möglich bei Ihnen melden.",
+    "yourName": "Ihr Name",
+    "yourEmail": "Ihre E-Mail",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "messagePlaceholder": "Erzählen Sie mir von Ihrem Projekt oder wie ich Ihnen helfen kann...",
+    "send": "Nachricht senden",
+    "email": "E-Mail",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "phone": "Telefon"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten"
+  }
+}

@@ -1,3 +1,5 @@
+'use client';
+
 import { Card } from '@/components/ui/card';
 import Image, { StaticImageData } from 'next/image';
 import { Separator } from '../ui/separator';
@@ -5,6 +7,7 @@ import { Github, BookOpen, ExternalLink, BarChart3, FileText } from 'lucide-reac
 import { Button } from '../ui/button';
 import SectionHeader from './section-header';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import joossamHome from '@/public/joossam/home.png';
 import jotionHome from '@/public/jotion/home.png';
 import joossamMain from '@/public/joossam/main.png';
@@ -94,17 +97,19 @@ function ProjectCard({ title, description, tags, imageSrc, githubUrl, liveUrl, d
 }
 
 export default function Projects() {
+  const t = useTranslations('projects');
+
   return (
     <main className="flex bg-muted flex-col items-center justify-center gap-12 smalltablet:gap-14 tablet:gap-16 p-4 smalltablet:p-6 tablet:p-8 py-16 smalltablet:py-18 tablet:py-20">
       <SectionHeader
-        title="Featured Projects"
-        description="Some of my recent work and side projects"
+        title={t('title')}
+        description={t('description')}
       />
 
       <section className="grid grid-cols-1 desktop:grid-cols-2 gap-4 smalltablet:gap-5 tablet:gap-6 desktop:gap-8 max-w-[1440px] w-full">
         <ProjectCard
-          title="Joossam English"
-          description="English learning platform for Korean students"
+          title={t("joossam.title")}
+          description={t("joossam.description")}
           tags={['Next.js', 'TypeScript', 'Prisma', 'MySQL', 'NextAuth.js']}
           imageSrc={joossamHome}
           githubUrl="https://github.com/minjo-on/joossam"
@@ -114,8 +119,8 @@ export default function Projects() {
           monitoringUrl="#"
         />
         <ProjectCard
-          title="Jotion"
-          description="Notion-like note-taking application"
+          title={t("jotion.title")}
+          description={t("jotion.description")}
           tags={['Next.js', 'React', 'Convex', 'Clerk', 'BlockNote']}
           imageSrc={jotionHome}
           githubUrl="https://github.com/minjo-on/jotion"
@@ -125,8 +130,8 @@ export default function Projects() {
           monitoringUrl="#"
         />
         <ProjectCard
-          title="Youni Classic"
-          description="Church community management system"
+          title={t("youniClassic.title")}
+          description={t("youniClassic.description")}
           tags={['Next.js', 'TypeScript', 'MySQL', 'Prisma']}
           imageSrc={joossamMain}
           githubUrl="https://github.com/minjo-on/youniClassic"
@@ -135,8 +140,8 @@ export default function Projects() {
           monitoringUrl="#"
         />
         <ProjectCard
-          title="Jaejadle Church"
-          description="Church website with event management"
+          title={t("jaejadle.title")}
+          description={t("jaejadle.description")}
           tags={['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn/ui']}
           imageSrc={jaejadleHome}
           githubUrl="https://github.com/minjo-on/jaejadle"
@@ -146,8 +151,8 @@ export default function Projects() {
           monitoringUrl="#"
         />
         <ProjectCard
-          title="Portfolio"
-          description="Personal portfolio website with Kubernetes deployment"
+          title={t("portfolio.title")}
+          description={t("portfolio.description")}
           tags={['Next.js', 'TypeScript', 'Docker', 'Kubernetes', 'ArgoCD']}
           imageSrc={portfolioHome}
           githubUrl="https://github.com/minjo-on/portfolio"
@@ -157,8 +162,8 @@ export default function Projects() {
           monitoringUrl="#"
         />
         <ProjectCard
-          title="[Seminar] Todo List"
-          description="Educational todo list application for teaching"
+          title={t("todoList.title")}
+          description={t("todoList.description")}
           tags={['React', 'TypeScript', 'Vite', 'Tailwind CSS']}
           imageSrc={todoListHome}
           githubUrl="https://github.com/minjo-on/todoList"
@@ -167,8 +172,8 @@ export default function Projects() {
           monitoringUrl="#"
         />
         <ProjectCard
-          title="Jovies"
-          description="Movie discovery and tracking application"
+          title={t("jovies.title")}
+          description={t("jovies.description")}
           tags={['Next.js', 'TypeScript', 'TMDB API', 'Tailwind CSS']}
           imageSrc={joviesHome}
           githubUrl="https://github.com/minjo-on/jovies"

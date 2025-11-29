@@ -1,0 +1,117 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "monitoring": "Monitoring",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Full Stack Developer",
+    "description": "Creating beautiful and functional web experiences with modern technologies"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Passionate full-stack developer with expertise in building scalable web applications and cloud infrastructure",
+    "personalInfo": "Personal Info",
+    "whoIAm": "Who I Am",
+    "name": "Name",
+    "education": "Education",
+    "birthday": "Birthday",
+    "location": "Location",
+    "github": "Github",
+    "email": "Email",
+    "bio1": "I'm Minjo Kim, a Full-Stack Developer and Bachelor in Computer Science at Seoul National University, Korea. I have experience in web development and cloud infrastructure, passionate about building scalable and efficient systems.",
+    "bio2": "My academic background gave me solid knowledge in Algorithms, Data Structures, System Design, and Databases which I apply to create efficient and modern systems. I've delivered impactful solutions using TypeScript, React, Next.js, and Tailwind CSS.",
+    "bio3": "I'm responsible for building full-stack applications, setting up Kubernetes clusters with ArgoCD for GitOps workflows, and implementing monitoring systems with Prometheus and Grafana. I focus on creating maintainable code and improving system performance and scalability."
+  },
+  "skills": {
+    "title": "Skills & Expertise",
+    "description": "Technologies and tools I work with to build amazing web applications",
+    "frontend": {
+      "title": "Frontend Development",
+      "description": "Building responsive and interactive user interfaces with modern frameworks and libraries"
+    },
+    "backend": {
+      "title": "Backend Development",
+      "description": "Developing robust server-side applications and RESTful APIs"
+    },
+    "devops": {
+      "title": "DevOps & Tools",
+      "description": "Managing deployment pipelines and development workflows"
+    },
+    "monitoring": {
+      "title": "Monitoring",
+      "description": "Implementing monitoring systems with Prometheus and Grafana"
+    },
+    "testing": {
+      "title": "Testing",
+      "description": "Implementing testing frameworks and tools"
+    },
+    "hosting": {
+      "title": "Web Hosting",
+      "description": "Deploying and managing web applications on various hosting platforms"
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "description": "Some of my recent work and side projects",
+    "joossam": {
+      "title": "Joossam English",
+      "description": "English learning platform for Korean students"
+    },
+    "jotion": {
+      "title": "Jotion",
+      "description": "Notion-like note-taking application"
+    },
+    "youniClassic": {
+      "title": "Youni Classic",
+      "description": "Church community management system"
+    },
+    "jaejadle": {
+      "title": "Jaejadle Church",
+      "description": "Church website with event management"
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Personal portfolio website with Kubernetes deployment"
+    },
+    "todoList": {
+      "title": "[Seminar] Todo List",
+      "description": "Educational todo list application for teaching"
+    },
+    "jovies": {
+      "title": "Jovies",
+      "description": "Movie discovery and tracking application"
+    }
+  },
+  "monitoring": {
+    "title": "Monitoring",
+    "description": "Real-time Kubernetes cluster monitoring with Grafana dashboards",
+    "overview": "Overview",
+    "resources": "Resources",
+    "kubernetes": "Kubernetes",
+    "network": "Network"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "description": "Have a project in mind or want to collaborate? I'd love to hear from you. Feel free to reach out through any of the channels below.",
+    "contactInfo": "Contact Information",
+    "sendMessage": "Send Me a Message",
+    "formDescription": "Fill out the form below and I'll get back to you as soon as possible.",
+    "yourName": "Your Name",
+    "yourEmail": "Your Email",
+    "subject": "Subject",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project or how I can help you...",
+    "send": "Send Message",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "phone": "Phone"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  }
+}

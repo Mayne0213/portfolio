@@ -2,15 +2,17 @@
 
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { ModeToggle } from '@/components/ui/mode-toggle';
+import { LanguageToggle } from '@/components/ui/language-toggle';
+import { useTranslations } from 'next-intl';
 
 const HEADER_MENU_ITEMS = [
-  { name: 'About', path: '/#about', isScroll: true },
-  { name: 'Skills', path: '/#skills', isScroll: true },
-  { name: 'Projects', path: '/#projects', isScroll: true },
-  { name: 'Grafana', path: '/#monitoring', isScroll: true },
-  { name: 'Contact', path: '/#contact', isScroll: true },
+  { key: 'about', path: '/#about', isScroll: true },
+  { key: 'skills', path: '/#skills', isScroll: true },
+  { key: 'projects', path: '/#projects', isScroll: true },
+  { key: 'monitoring', path: '/#monitoring', isScroll: true },
+  { key: 'contact', path: '/#contact', isScroll: true },
 ];
 
 interface HeaderProfileProps {
@@ -49,6 +51,8 @@ const HeaderProfile = ({
 
 
 const HeaderMenuItemsDesktop = () => {
+  const t = useTranslations('header');
+
   const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, isScroll: boolean) => {
     if (isScroll) {
       e.preventDefault();
@@ -71,7 +75,7 @@ const HeaderMenuItemsDesktop = () => {
     <div className="flex justify-center items-center">
       {HEADER_MENU_ITEMS.map((item) => (
         <div
-          key={item.name}
+          key={item.key}
           className="px-2 tablet:px-4 desktop:px-6 transition-all"
         >
           <Link
@@ -79,7 +83,7 @@ const HeaderMenuItemsDesktop = () => {
             onClick={(e) => handleScrollClick(e, item.path, item.isScroll)}
             className="font-extralight text-xs tablet:text-sm desktop:text-base duration-100 ease-in hover:border-b-2 hover:border-b-black hover:dark:border-b-white pb-1"
           >
-            {item.name}
+            {t(item.key)}
           </Link>
         </div>
       ))}
@@ -89,6 +93,7 @@ const HeaderMenuItemsDesktop = () => {
 
 const HeaderMenuItemsMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations('header');
 
   const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string, isScroll: boolean) => {
     if (isScroll) {
@@ -140,7 +145,7 @@ const HeaderMenuItemsMobile = () => {
                 <div className="flex flex-col items-center gap-8 smalltablet:gap-12">
                   {HEADER_MENU_ITEMS.map(item => (
                     <div
-                      key={item.name}
+                      key={item.key}
                       className="px-4 smalltablet:px-6 desktop:px-8 transition-all items-center"
                     >
                       <Link
@@ -148,7 +153,7 @@ const HeaderMenuItemsMobile = () => {
                         onClick={(e) => handleScrollClick(e, item.path, item.isScroll)}
                         className="text-lg smalltablet:text-xl duration-100 ease-in hover:border-b-2 hover:border-b-brand-primary hover:dark:border-b-white pb-1"
                       >
-                        {item.name}
+                        {t(item.key)}
                       </Link>
                     </div>
                   ))}
@@ -178,6 +183,7 @@ const Header = () => {
           <div className="hidden tablet:block">
             <HeaderMenuItemsDesktop />
           </div>
+          <LanguageToggle />
           <ModeToggle />
         </div>
       </div>

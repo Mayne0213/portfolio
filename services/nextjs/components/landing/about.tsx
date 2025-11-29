@@ -1,7 +1,10 @@
+'use client';
+
 import SectionHeader from '@/components/landing/section-header';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { User, Calendar, MapPin, Mail, GraduationCap, LucideIcon, Github } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface InfoItemProps {
   icon: LucideIcon;
@@ -23,29 +26,31 @@ function InfoItem({ icon: Icon, label, value }: InfoItemProps) {
   );
 }
 
-const PERSONAL_INFO = [
-  { icon: User, label: 'Name', value: 'MINJO KIM' },
-  { icon: GraduationCap, label: 'Education', value: 'Yonsei University (Computer Science)' },
-  { icon: Calendar, label: 'Birthday', value: '1997.01.17' },
-  { icon: MapPin, label: 'Location', value: 'Seoul, Korea' },
-  { icon: Github, label: 'Github', value: 'Mayne0213' },
-  { icon: Mail, label: 'Email', value: 'minjo.dev@gmail.com' },
-];
-
 export default function About() {
+  const t = useTranslations('about');
+
+  const PERSONAL_INFO = [
+    { icon: User, label: t('name'), value: 'MINJO KIM' },
+    { icon: GraduationCap, label: t('education'), value: 'Yonsei University (Computer Science)' },
+    { icon: Calendar, label: t('birthday'), value: '1997.01.17' },
+    { icon: MapPin, label: t('location'), value: 'Seoul, Korea' },
+    { icon: Github, label: t('github'), value: 'Mayne0213' },
+    { icon: Mail, label: t('email'), value: 'minjo.dev@gmail.com' },
+  ];
+
   return (
     <div className="bg-muted">
       <main className="flex flex-col items-center justify-center gap-12 smalltablet:gap-14 tablet:gap-16 p-4 smalltablet:p-6 tablet:p-8 py-16 smalltablet:py-18 tablet:py-20">
         <SectionHeader
-          title="About Me"
-          description="Passionate full-stack developer with expertise in building scalable web applications and cloud infrastructure"
+          title={t('title')}
+          description={t('description')}
         />
 
         <section className="grid grid-cols-1 tablet:grid-cols-2 gap-6 smalltablet:gap-7 tablet:gap-8 max-w-7xl w-full">
           {/* Personal Info */}
           <div className="flex flex-col gap-3 smalltablet:gap-4 h-full">
             <Card className="p-4 smalltablet:p-5 tablet:p-6 flex-1 gap-3 smalltablet:gap-4">
-            <h3 className="text-xl smalltablet:text-2xl font-bold">Personal Info</h3>
+            <h3 className="text-xl smalltablet:text-2xl font-bold">{t('personalInfo')}</h3>
             <Separator/>
               <div className="grid grid-cols-1 smalltablet:grid-cols-2 gap-4 smalltablet:gap-5 tablet:gap-6 items-center h-full">
                 {PERSONAL_INFO.map((info, index) => (
@@ -64,21 +69,16 @@ export default function About() {
           <div className="flex flex-col gap-3 smalltablet:gap-4 h-full">
             <Card className="p-4 smalltablet:p-5 tablet:p-6 flex-1">
               <div className="flex flex-col gap-3 smalltablet:gap-4">
-                <h3 className="text-xl smalltablet:text-2xl font-bold">Who I Am</h3>
+                <h3 className="text-xl smalltablet:text-2xl font-bold">{t('whoIAm')}</h3>
                 <Separator/>
                 <p className="text-sm smalltablet:text-base text-muted-foreground tablet:text-justify leading-relaxed">
-                  I&apos;m Minjo Kim, a Full-Stack Developer and Bachelor in Computer Science at Seoul National University, Korea.
-                  I have experience in web development and cloud infrastructure, passionate about building scalable and efficient systems.
+                  {t('bio1')}
                 </p>
                 <p className="text-sm smalltablet:text-base text-muted-foreground tablet:text-justify leading-relaxed">
-                  My academic background gave me solid knowledge in Algorithms, Data Structures, System Design, and Databases
-                  which I apply to create efficient and modern systems. I&apos;ve delivered impactful solutions using TypeScript,
-                  React, Next.js, and Tailwind CSS.
+                  {t('bio2')}
                 </p>
                 <p className="text-sm smalltablet:text-base text-muted-foreground tablet:text-justify leading-relaxed">
-                  I&apos;m responsible for building full-stack applications, setting up Kubernetes clusters with ArgoCD for GitOps workflows,
-                  and implementing monitoring systems with Prometheus and Grafana. I focus on creating maintainable code and
-                  improving system performance and scalability.
+                  {t('bio3')}
                 </p>
               </div>
             </Card>

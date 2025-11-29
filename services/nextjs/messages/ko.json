@@ -1,0 +1,117 @@
+{
+  "header": {
+    "home": "홈",
+    "about": "소개",
+    "skills": "기술",
+    "projects": "프로젝트",
+    "monitoring": "모니터링",
+    "contact": "연락처"
+  },
+  "hero": {
+    "title": "풀스택 개발자",
+    "description": "현대적인 기술로 아름답고 기능적인 웹 경험을 만듭니다"
+  },
+  "about": {
+    "title": "소개",
+    "description": "확장 가능한 웹 애플리케이션과 클라우드 인프라 구축에 전문성을 갖춘 열정적인 풀스택 개발자",
+    "personalInfo": "개인 정보",
+    "whoIAm": "나는 누구인가",
+    "name": "이름",
+    "education": "학력",
+    "birthday": "생년월일",
+    "location": "위치",
+    "github": "깃허브",
+    "email": "이메일",
+    "bio1": "저는 서울대학교 컴퓨터공학과 학사 과정의 풀스택 개발자 김민조입니다. 웹 개발과 클라우드 인프라 경험이 있으며, 확장 가능하고 효율적인 시스템 구축에 열정을 가지고 있습니다.",
+    "bio2": "학업 배경을 통해 알고리즘, 자료구조, 시스템 설계, 데이터베이스에 대한 탄탄한 지식을 쌓았으며, 이를 효율적이고 현대적인 시스템을 만드는 데 적용합니다. TypeScript, React, Next.js, Tailwind CSS를 사용하여 영향력 있는 솔루션을 제공했습니다.",
+    "bio3": "풀스택 애플리케이션 구축, GitOps 워크플로우를 위한 ArgoCD를 사용한 Kubernetes 클러스터 설정, Prometheus와 Grafana를 사용한 모니터링 시스템 구현을 담당하고 있습니다. 유지보수 가능한 코드 작성과 시스템 성능 및 확장성 향상에 집중합니다."
+  },
+  "skills": {
+    "title": "기술 및 전문성",
+    "description": "놀라운 웹 애플리케이션을 구축하기 위해 사용하는 기술과 도구",
+    "frontend": {
+      "title": "프론트엔드 개발",
+      "description": "현대적인 프레임워크와 라이브러리로 반응형 및 인터랙티브 사용자 인터페이스 구축"
+    },
+    "backend": {
+      "title": "백엔드 개발",
+      "description": "견고한 서버 사이드 애플리케이션 및 RESTful API 개발"
+    },
+    "devops": {
+      "title": "데브옵스 및 도구",
+      "description": "배포 파이프라인 및 개발 워크플로우 관리"
+    },
+    "monitoring": {
+      "title": "모니터링",
+      "description": "Prometheus와 Grafana를 사용한 모니터링 시스템 구현"
+    },
+    "testing": {
+      "title": "테스팅",
+      "description": "테스팅 프레임워크 및 도구 구현"
+    },
+    "hosting": {
+      "title": "웹 호스팅",
+      "description": "다양한 호스팅 플랫폼에서 웹 애플리케이션 배포 및 관리"
+    }
+  },
+  "projects": {
+    "title": "주요 프로젝트",
+    "description": "최근 작업 및 사이드 프로젝트",
+    "joossam": {
+      "title": "Joossam English",
+      "description": "한국 학생을 위한 영어 학습 플랫폼"
+    },
+    "jotion": {
+      "title": "Jotion",
+      "description": "Notion과 유사한 노트 작성 애플리케이션"
+    },
+    "youniClassic": {
+      "title": "Youni Classic",
+      "description": "교회 커뮤니티 관리 시스템"
+    },
+    "jaejadle": {
+      "title": "Jaejadle Church",
+      "description": "이벤트 관리 기능이 있는 교회 웹사이트"
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Kubernetes 배포를 사용한 개인 포트폴리오 웹사이트"
+    },
+    "todoList": {
+      "title": "[세미나] Todo List",
+      "description": "교육용 할 일 목록 애플리케이션"
+    },
+    "jovies": {
+      "title": "Jovies",
+      "description": "영화 검색 및 추적 애플리케이션"
+    }
+  },
+  "monitoring": {
+    "title": "모니터링",
+    "description": "Grafana 대시보드를 사용한 실시간 Kubernetes 클러스터 모니터링",
+    "overview": "개요",
+    "resources": "리소스",
+    "kubernetes": "Kubernetes",
+    "network": "네트워크"
+  },
+  "contact": {
+    "title": "연락하기",
+    "description": "프로젝트가 있거나 협업하고 싶으신가요? 여러분의 의견을 듣고 싶습니다. 아래 채널을 통해 자유롭게 연락해주세요.",
+    "contactInfo": "연락처 정보",
+    "sendMessage": "메시지 보내기",
+    "formDescription": "아래 양식을 작성해 주시면 최대한 빨리 답변드리겠습니다.",
+    "yourName": "이름",
+    "yourEmail": "이메일",
+    "subject": "제목",
+    "message": "메시지",
+    "messagePlaceholder": "프로젝트나 도움이 필요한 사항에 대해 알려주세요...",
+    "send": "메시지 보내기",
+    "email": "이메일",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "phone": "전화"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  }
+}
