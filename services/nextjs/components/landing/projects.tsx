@@ -35,56 +35,56 @@ function ProjectCard({ title, description, tags, imageSrc, githubUrl, liveUrl, d
           fill
           className="object-cover border-b-2 border-gray-200"
           placeholder="blur"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 600px) 100vw, (max-width: 990px) 100vw, (max-width: 1200px) 50vw, 50vw"
         />
       </div>
-      <div className="px-6 pt-6 pb-4 flex flex-col gap-3">
-        <h3 className="font-semibold text-2xl">{title}</h3>
-        <p className="text-muted-foreground font-extralight">{description}</p>
-        <div className="flex gap-2 flex-wrap">
+      <div className="px-4 smalltablet:px-5 tablet:px-6 pt-4 smalltablet:pt-5 tablet:pt-6 pb-3 smalltablet:pb-4 flex flex-col gap-2 smalltablet:gap-3">
+        <h3 className="font-semibold text-lg smalltablet:text-xl tablet:text-2xl">{title}</h3>
+        <p className="text-sm smalltablet:text-base text-muted-foreground font-extralight">{description}</p>
+        <div className="flex gap-1.5 smalltablet:gap-2 flex-wrap">
           {tags.map((tag) => (
-            <Button key={tag} variant="outline" className="text-xs px-3 py-1">
+            <Button key={tag} variant="outline" className="text-[10px] smalltablet:text-xs px-2 smalltablet:px-3 py-0.5 smalltablet:py-1 h-auto">
               {tag}
             </Button>
           ))}
         </div>
       </div>
-      <div className="px-6">
+      <div className="px-4 smalltablet:px-5 tablet:px-6">
         <Separator />
       </div>
-      <div className="px-6 py-4 flex gap-4 flex-wrap">
+      <div className="px-4 smalltablet:px-5 tablet:px-6 py-3 smalltablet:py-4 flex gap-3 smalltablet:gap-4 flex-wrap">
         {liveUrl && (
           <Link href={liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
             <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
-              <ExternalLink className="w-5 h-5" />
+              <ExternalLink className="w-4 h-4 smalltablet:w-5 smalltablet:h-5" />
             </div>
           </Link>
         )}
         {githubUrl && (
           <Link href={githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
-              <Github className="w-5 h-5" />
+              <Github className="w-4 h-4 smalltablet:w-5 smalltablet:h-5" />
             </div>
           </Link>
         )}
         {docsUrl && (
           <Link href={docsUrl} target="_blank" rel="noopener noreferrer" aria-label="Documentation">
             <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
-              <BookOpen className="w-5 h-5" />
+              <BookOpen className="w-4 h-4 smalltablet:w-5 smalltablet:h-5" />
             </div>
           </Link>
         )}
         {docusaurusUrl && (
           <Link href={docusaurusUrl} target="_blank" rel="noopener noreferrer" aria-label="Docusaurus">
             <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
-              <FileText className="w-5 h-5" />
+              <FileText className="w-4 h-4 smalltablet:w-5 smalltablet:h-5" />
             </div>
           </Link>
         )}
         {monitoringUrl && (
           <Link href={monitoringUrl} target="_blank" rel="noopener noreferrer" aria-label="Monitoring">
             <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
-              <BarChart3 className="w-5 h-5" />
+              <BarChart3 className="w-4 h-4 smalltablet:w-5 smalltablet:h-5" />
             </div>
           </Link>
         )}
@@ -95,13 +95,13 @@ function ProjectCard({ title, description, tags, imageSrc, githubUrl, liveUrl, d
 
 export default function Projects() {
   return (
-    <main className="flex bg-muted flex-col items-center justify-center gap-16 p-4 tablet:p-8 py-20">
+    <main className="flex bg-muted flex-col items-center justify-center gap-12 smalltablet:gap-14 tablet:gap-16 p-4 smalltablet:p-6 tablet:p-8 py-16 smalltablet:py-18 tablet:py-20">
       <SectionHeader
         title="Featured Projects"
         description="Some of my recent work and side projects"
       />
 
-      <section className="grid grid-cols-1 pc:grid-cols-2 gap-6 pc:gap-8 max-w-[1440px] w-full">
+      <section className="grid grid-cols-1 desktop:grid-cols-2 gap-4 smalltablet:gap-5 tablet:gap-6 desktop:gap-8 max-w-[1440px] w-full">
         <ProjectCard
           title="Joossam English"
           description="English learning platform for Korean students"

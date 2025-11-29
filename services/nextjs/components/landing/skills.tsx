@@ -19,36 +19,36 @@ function SkillCard({ icon: Icon, title, description, mainSkills, subSkills }: Sk
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <Card className="p-5 w-full h-full gap-4 relative">
+    <Card className="p-4 smalltablet:p-5 w-full h-full gap-3 smalltablet:gap-4 relative">
       {/* Toggle Button - Top Right Corner */}
       {subSkills.length > 0 && (
         <Button
           variant="ghost"
           size="sm"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="absolute top-6 right-6 p-2 h-8 w-8"
+          className="absolute top-4 right-4 smalltablet:top-6 smalltablet:right-6 p-2 h-8 w-8"
         >
           <ChevronDown className={`w-16 h-16 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
         </Button>
       )}
 
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center justify-center min-w-12 min-h-12 rounded-full bg-muted w-fit">
-          <Icon className="min-w-8 min-h-8" />
+      <div className="flex flex-col gap-3 smalltablet:gap-4">
+        <div className="flex items-center justify-center min-w-10 min-h-10 smalltablet:min-w-12 smalltablet:min-h-12 rounded-full bg-muted w-fit">
+          <Icon className="min-w-6 min-h-6 smalltablet:min-w-8 smalltablet:min-h-8" />
         </div>
         <CardTitle>
-          <h3 className="text-lg">{title}</h3>
+          <h3 className="text-base smalltablet:text-lg">{title}</h3>
         </CardTitle>
       </div>
 
-      <div className="flex flex-col gap-6 justify-between h-full">
-        <p className="font-extralight">{description}</p>
-        <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 smalltablet:gap-6 justify-between h-full">
+        <p className="text-sm smalltablet:text-base font-extralight">{description}</p>
+        <div className="flex flex-col gap-3 smalltablet:gap-4">
           <Separator />
           {/* Main Skills */}
-          <div className="flex gap-3 flex-wrap">
+          <div className="flex gap-2 smalltablet:gap-3 flex-wrap">
             {mainSkills.map((skill) => (
-              <span key={skill} className="text-sm font-medium text-gray-800 dark:text-gray-100">
+              <span key={skill} className="text-xs smalltablet:text-sm font-medium text-gray-800 dark:text-gray-100">
                 {skill}
               </span>
             ))}
@@ -56,10 +56,10 @@ function SkillCard({ icon: Icon, title, description, mainSkills, subSkills }: Sk
           {/* Sub Skills - Toggleable */}
           {subSkills.length > 0 && (
             <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-96' : 'max-h-0'}`}>
-              <Separator className="opacity-50 mb-4" />
-              <div className="flex gap-3 flex-wrap">
+              <Separator className="opacity-50 mb-3 smalltablet:mb-4" />
+              <div className="flex gap-2 smalltablet:gap-3 flex-wrap">
                 {subSkills.map((skill) => (
-                  <span key={skill} className="text-sm font-extralight text-gray-600 dark:text-gray-300 opacity-80">
+                  <span key={skill} className="text-xs smalltablet:text-sm font-extralight text-gray-600 dark:text-gray-300 opacity-80">
                     {skill}
                   </span>
                 ))}
@@ -74,13 +74,13 @@ function SkillCard({ icon: Icon, title, description, mainSkills, subSkills }: Sk
 
 export default function Skills() {
   return (
-    <main className="flex max-w-7xl mx-auto flex-col items-center justify-center gap-16 p-4 tablet:p-8 py-20">
+    <main className="flex max-w-7xl mx-auto flex-col items-center justify-center gap-12 smalltablet:gap-14 tablet:gap-16 p-4 smalltablet:p-6 tablet:p-8 py-16 smalltablet:py-18 tablet:py-20">
       <SectionHeader
         title="Skills & Expertise"
         description="Technologies and tools I work with to build amazing web applications"
       />
 
-      <div className="grid grid-cols-1 tablet:grid-cols-2 pc:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 smalltablet:grid-cols-2 desktop:grid-cols-3 gap-4 smalltablet:gap-5 tablet:gap-6">
         <SkillCard
           icon={Code}
           title="Frontend Development"

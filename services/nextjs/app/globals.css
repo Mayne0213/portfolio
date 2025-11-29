@@ -5,8 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --breakpoint-tablet: 768px;
-  --breakpoint-pc: 1024px;
+  --breakpoint-smalltablet: 600px;
+  --breakpoint-tablet: 990px;
+  --breakpoint-desktop: 1200px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -25,8 +26,9 @@
   --color-ring: var(--ring);
 }
 
-@custom-variant tablet (@media (width >= 768px));
-@custom-variant pc (@media (width >= 1024px));
+@custom-variant smalltablet (@media (width >= 600px));
+@custom-variant tablet (@media (width >= 990px));
+@custom-variant desktop (@media (width >= 1200px));
 
 :root {
   --radius: 0.625rem;
@@ -110,7 +112,7 @@
   }
 
   .page-container {
-    @apply flex flex-col items-center justify-center gap-16 p-4 tablet:p-8 py-20 mt-[70px];
+    @apply flex flex-col items-center justify-center gap-12 smalltablet:gap-14 tablet:gap-16 p-4 smalltablet:p-6 tablet:p-8 py-16 smalltablet:py-18 tablet:py-20 mt-[70px];
   }
 
   .theme-background {

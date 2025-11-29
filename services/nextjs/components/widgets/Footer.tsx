@@ -26,25 +26,25 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="my-12 mx-6 tablet:m-12 pc:mx-24 pc:mt-20">
-      <div className="flex items-center gap-8 mb-6 px-4">
+    <footer className="my-8 mx-4 smalltablet:my-10 smalltablet:mx-6 tablet:m-12 desktop:mx-24 desktop:mt-20">
+      <div className="flex flex-wrap items-center gap-4 smalltablet:gap-6 tablet:gap-8 mb-4 smalltablet:mb-6 px-2 smalltablet:px-4">
         {FOOTER_MENU_ITEMS.map((item) => (
           <Link
             key={item.name}
             href={item.path}
-            className="text-lg font-light hover:opacity-70 transition-opacity"
+            className="text-sm smalltablet:text-base tablet:text-lg font-light hover:opacity-70 transition-opacity"
           >
             {item.name}
           </Link>
         ))}
       </div>
       <Separator />
-      <div className="flex w-full pt-4">
-        <div className="w-full flex flex-col justify-between items-center gap-4 tablet:flex-row">
-          <p className="text-sm text-center text-muted-foreground">
+      <div className="flex w-full pt-3 smalltablet:pt-4">
+        <div className="w-full flex flex-col justify-between items-center gap-3 smalltablet:gap-4 tablet:flex-row">
+          <p className="text-xs smalltablet:text-sm text-center text-muted-foreground">
             © {currentYear} All rights reserved
           </p>
-          <div className="flex justify-center gap-8">
+          <div className="flex justify-center gap-6 smalltablet:gap-8">
             {SOCIAL_MEDIA.map(({ name, icon: Icon, href }) => (
               <Link
                 key={name}
@@ -53,7 +53,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="hover:opacity-70 transition-opacity"
               >
-                <Icon className="w-6 h-6" />
+                <Icon className="w-5 h-5 smalltablet:w-6 smalltablet:h-6" />
               </Link>
             ))}
           </div>
