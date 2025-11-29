@@ -5,8 +5,8 @@ metadata:
   namespace: portfolio
 spec:
   hard:
-    requests.memory: "150Mi"
-    requests.cpu: "100m"
-    limits.memory: "250Mi"
-    limits.cpu: "200m"
-    pods: "2"
+    requests.memory: "250Mi"
+    requests.cpu: "200m"
+    limits.memory: "400Mi"
+    limits.cpu: "400m"
+    pods: "3"
